@@ -31,7 +31,9 @@ Mounting a network share is a popular option for storing Recordings, but this ca
 
 #### Check mount options
 
-Some users found that mounting a drive via `fstab` with the `sync` option caused dramatically reduce performance and led to this issue. Using `async` instead greatly reduced copy times.
+When using [/etc/fstab](https://en.wikipedia.org/wiki/Fstab) to mount your drives or network shares, make sure you are not using the sync option as this dramatically reduces performance. As the default for fstab is async you are not required to add it. 
+
+Further clarification: In general, though exponentially on network shares, sync will wait for acknowledgment of each write, causing additional delays.
 
 ### Copy Times < 1 second
 
